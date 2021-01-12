@@ -1,0 +1,25 @@
+---
+- hosts: lab
+  tasks:
+    - name: create group
+      group:
+        name: grouptest
+        gid: 7777
+        state: present
+    - name: create user
+      user:
+        name: usertest
+        state: present
+        uid: 6666
+        group: grouptest
+    - name: create directory
+      file:
+        name: /tmp/mydir
+        owner: root
+        state: directory
+    - name: create a file
+      file:
+        name: /tmp/mydir/test
+        owner: usertest
+        mode: 777
+        state: touch

@@ -1,0 +1,10 @@
+---
+- hosts: lab
+  tasks:
+    - name: installing multiple packages
+      apt:
+        name:
+          - ntp
+          - telnet
+          - tar
+        state: present 

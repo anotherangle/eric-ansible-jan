@@ -1,0 +1,24 @@
+---
+- hosts: lab
+  tasks:
+    - name: install a package
+      apt:
+        name: npm
+        state: present
+      notify:
+        - update the config list
+        - service restart  
+    - name: update a file
+      lineinfile:
+        line:  "Some lw2"
+        path: /home/ubuntu/somefile
+      notify: update the config list
+  handlers:
+    - name: update the config list
+      lineinfile:
+        line: "Padsckage Iddnstalled and file updated"
+        path: /home/ubuntu/record.txt
+    - name: service restart
+      service:
+        name: apache2
+        state: restarted

@@ -1,0 +1,15 @@
+---
+- hosts: lab
+  tasks:
+    - name: install package1
+      apt:
+        name: ntp
+        state: present
+    - name: install package2
+      apt:
+        name: unzip
+        state: present
+    - name: install package3
+      apt:
+        name: telnet
+        state: present

@@ -1,0 +1,13 @@
+---
+- hosts: lab
+  tasks:
+    - name: install multiplepackages
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - ntp
+        - telnet
+        - tar
+        - unzip
+        - curl

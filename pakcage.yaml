@@ -1,0 +1,14 @@
+---
+- hosts: lab
+  tasks:
+    - name: update repo list
+      apt:
+        update_cache: true
+    - name: installing a package
+      apt:
+        name: ntp
+        state: present
+    - name: ensuring ntp not running
+      service:
+        name: ntp
+        state: restarted

@@ -1,0 +1,12 @@
+---
+- hosts: lab
+  tasks:
+    - name: append at end
+      lineinfile:
+        path: /var/www/html/index.html
+        line: "<h2>Good Afternoon</h2>"
+    - name: append at top
+      lineinfile:
+        path: /var/www/html/index.html
+        line: "<h1>----------------</h1>"
+        insertbefore: BOF

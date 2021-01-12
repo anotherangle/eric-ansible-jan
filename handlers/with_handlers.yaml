@@ -1,0 +1,13 @@
+---
+- hosts: lab
+  tasks:
+    - name: update config file
+      copy:
+        src: test.cfg
+        dest: /home/ubuntu/test.cfg
+      notify: restart service
+  handlers:
+    - name: restart service
+      service:
+        name: apache2
+        state: restarted

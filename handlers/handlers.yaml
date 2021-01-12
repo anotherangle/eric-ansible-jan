@@ -1,0 +1,19 @@
+---
+- hosts: lab
+  tasks:
+    - name: install a package
+      apt:
+        name: nodejs
+        state: present
+      notify: update the config list
+    - name: update a file
+      lineinfile:
+        line:  "Some lw3ine2"
+        path: /home/ubuntu/somefile
+      notify: update the config list
+  handlers:
+    - name: update the config list
+      lineinfile:
+        line: "Package Installed and file updated"
+        path: /home/ubuntu/record.txt
+

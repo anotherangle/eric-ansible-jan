@@ -1,0 +1,13 @@
+---
+- hosts: lab
+  tasks:
+    - name: copy a file
+      copy:
+        src: somefile.j2
+        dest: /home/ubuntu/copy.txt
+    - name: template module to copy a file
+      template:
+        src: somefile.j2
+        dest: /home/ubuntu/template.txt
+
+

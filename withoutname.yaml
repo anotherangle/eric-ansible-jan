@@ -1,0 +1,21 @@
+---
+- hosts: lab
+  tasks:
+    - group:
+        name: grouptest
+        gid: 7777
+        state: present
+    - user:
+        name: usertest
+        state: present
+        uid: 6667
+        group: grouptest
+    - file:
+        name: /tmp/mydir
+        owner: root
+        state: directory 
+    - file:
+        name: /tmp/mydir/test
+        owner: usertest
+        mode: 777
+        state: touch

@@ -1,0 +1,16 @@
+---
+- hosts: lab
+  tasks:
+    - name: copy a file
+      copy:
+        src: somefile
+        dest: /home/ubuntu/
+    - name: content copy
+      copy:
+        content: "<h1>Hello All</h1>"
+        dest: /var/www/html/index.html
+    - name: remote copy
+      copy:
+        src: /var/www/html/index.html
+        dest: /home/ubuntu/
+        remote_src: true
