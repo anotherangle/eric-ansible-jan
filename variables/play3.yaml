@@ -1,0 +1,14 @@
+---
+- hosts: lab
+  vars:
+    packs:
+      - ntp
+      - apache2
+      - unzip
+  tasks:
+    - name:  installing package 
+      apt:
+        name: 
+          - "{{ packs[0] }}"
+          - "{{ packs[1] }}"
+        state: present

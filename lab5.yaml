@@ -1,0 +1,13 @@
+---
+- hosts: lab
+  vars:
+    yourname: "Chetan Talwar"
+  tasks:
+    - name: install apache
+      apt:
+        name: apache2
+        state: present
+    - name: template for copy
+      template:
+        src: lab5.j2
+        dest: /var/www/html/index.html

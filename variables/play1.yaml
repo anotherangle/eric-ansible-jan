@@ -1,0 +1,9 @@
+---
+- hosts: lab
+  vars:
+    username: thinknyx
+  tasks:
+    - name: create a user
+      user:
+        name: "{{ username }}"
+        state: present
