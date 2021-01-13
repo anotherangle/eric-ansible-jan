@@ -1,0 +1,6 @@
+---
+- name: creating a user
+  user:
+    name: "{{ user }}"
+    uid: "{{ uid }}"
+    state: present
