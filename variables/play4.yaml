@@ -1,0 +1,14 @@
+---
+- hosts: lab
+  vars_files:
+    - vars.yaml
+    - systemvars.yaml
+  tasks: 
+    - name: copy a file
+      copy:
+        src: "{{ filename }}"
+        dest: "{{ datadir }}"
+    - name: create a file
+      copy:
+        content: "{{ app_type }} for {{ env }} environment"
+        dest: "{{ datadir }}index.html"

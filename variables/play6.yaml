@@ -1,0 +1,9 @@
+---
+- hosts: lab
+  vars:
+    var1: somevar
+  tasks:
+    - name: create file
+      file:
+        name: "/tmp/{{ var1 }}"
+        state: touch
