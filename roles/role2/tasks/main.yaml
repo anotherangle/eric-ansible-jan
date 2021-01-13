@@ -1,0 +1,5 @@
+---
+- name: copy a file within role
+  copy:
+    src: role-excercise.txt
+    dest: "{{ datadir }}index.html"

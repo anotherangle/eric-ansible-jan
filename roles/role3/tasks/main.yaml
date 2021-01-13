@@ -1,0 +1,9 @@
+---
+- name: copy a file within role
+  copy:
+    src: role-excercise.txt
+    dest: "{{ datadir }}index2.html"
+- name: copy file using tempalte
+  template:
+    src: testing.j2 
+    dest: "{{ datadir }}index.html"
