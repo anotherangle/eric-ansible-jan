@@ -3,9 +3,14 @@
   tasks:
     - name: install a package
       apt:
+        update_cache: true
         name: nodejs
         state: present
       notify: update the config list
+    - name: create a task
+      file:
+        name: /home/ubuntu/somefile
+        state: touch
     - name: update a file
       lineinfile:
         line:  "Some lw3ine2"

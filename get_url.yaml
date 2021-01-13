@@ -1,0 +1,12 @@
+---
+- hosts: lab
+  tasks:
+    - name: add the image
+      get_url:
+        url: https://thinknyx.com/wp-content/uploads/2021/01/VirtualBox-6.1.16-140961-Win.exe_.zip
+        dest: /home/ubuntu/
+    - name: extract the zip
+      unarchive:
+        src: /home/ubuntu/VirtualBox-6.1.16-140961-Win.exe_.zip
+        dest: /tmp/
+        remote_src: true
