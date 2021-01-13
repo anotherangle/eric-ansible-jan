@@ -1,0 +1,9 @@
+---
+- hosts: lab
+  tasks:
+    - name: packge
+      shell: echo "This is a random message"
+      register: var1
+    - debug:
+        var: var1.stdout
+

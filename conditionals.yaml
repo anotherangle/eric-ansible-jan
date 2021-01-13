@@ -1,0 +1,14 @@
+---
+- hosts: lab
+  tasks:
+    - name: task1
+      copy:
+        content: 'task1'
+        dest: /home/ubuntu/conditonal.txt
+      when: ansible_facts['distribution'] == "Ubuntu"
+    - name: task2
+      copy:
+        content: 'task2'
+        dest: /home/ubuntu/conditonal.txt
+      when: ansible_distribution == "CentOS"
+
