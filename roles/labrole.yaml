@@ -1,6 +1,6 @@
 ---
-- hosts: local
+- hosts: all
   tasks:
     - name: executing a role
       include_role:
-        name: role5
+        name: role6

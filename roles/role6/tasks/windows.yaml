@@ -1,0 +1,14 @@
+---
+- name: install tomcat
+  win_chocolatey:
+    name: tomcat
+    state: present
+    version: "{{ tomcat_ver }}"
+- name: install git
+  win_chocolatey:
+    name: git
+    state: present
+- name: copy file
+  win_template:
+    src: test.j2
+    dest: C:\\inetpub\\wwwroot\\webpage.html
