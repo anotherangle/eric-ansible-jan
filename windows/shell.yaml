@@ -1,0 +1,6 @@
+---
+- hosts: win
+  tasks:
+    - name: execute shell
+      win_shell: Get-Service > C:\out.txt
+

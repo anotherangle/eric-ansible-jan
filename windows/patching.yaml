@@ -1,0 +1,13 @@
+---
+- hosts: win
+  tasks:
+    - name: search for updates
+      win_updates:
+        category_names: SecurityUpdates
+        state: searched
+        log_path: C:\list.txt
+    - name: isntall updates
+      win_updates:
+        whitelist:
+          - "4535680"
+        state: installed
