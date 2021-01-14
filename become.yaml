@@ -6,4 +6,5 @@
         update_cache: true
         name: apache2
         state: present
-      become_method: sudo
+      become: yes
+      become_user: root
