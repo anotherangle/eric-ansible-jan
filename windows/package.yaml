@@ -1,0 +1,12 @@
+---
+- hosts: win
+  tasks:
+    - name: installing chrome
+      win_chocolatey:
+        name: googlechrome
+        state: present
+    - name: isntall notepad
+      win_chocolatey:
+        name: notepadplusplus.install
+        version: 7.8.9
+        state: present
