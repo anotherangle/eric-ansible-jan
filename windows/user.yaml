@@ -1,0 +1,15 @@
+---
+- hosts: win
+  tasks:
+    - name: user
+      win_user:
+        name: chetan3
+        state: present
+        password: Ans@123
+    - name: user2
+      win_user:
+        name: "{{ username }}"
+        password: "{{ pass }}"
+        groups: 
+          - Administrators
+        state: present
