@@ -3,6 +3,7 @@
   tasks:
     - name: install apache
       apt:
+        update_cache: true
         name: apache2
         state: present
       become_method: sudo
