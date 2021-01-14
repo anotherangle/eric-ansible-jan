@@ -1,0 +1,9 @@
+---
+- name: Create a  file
+  copy:
+    content: 'Ubuntu Yaml ran this'
+    dest: /home/ubuntu/{{ filename }}.txt
+- name: install package
+  apt:
+    name: npm
+    state: present

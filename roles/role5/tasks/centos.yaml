@@ -1,0 +1,9 @@
+---
+- name: create a file
+  copy:
+    content: 'Cetnos YAM Ran this'
+    dest: /home/ubuntu/{{ filename }}.txt
+- name: install a package
+  yum:
+    name: httpd
+    state: present

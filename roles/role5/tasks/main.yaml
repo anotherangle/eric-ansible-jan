@@ -1,0 +1,14 @@
+---
+- name: common task
+  copy:
+    content: 'common task'
+    dest: /home/ubuntu/common.txt
+- name: ubuntu stuff
+  include_tasks: ubuntu.yaml
+  when:
+    ansible_distribution == 'Ubuntu'
+- name: centos stuff
+  include_tasks: centos.yaml
+  when:
+    ansible_distribution == 'CentOS'
+
