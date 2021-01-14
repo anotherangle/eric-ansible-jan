@@ -1,0 +1,12 @@
+---
+- hosts: local
+  tasks:
+    - name: package installed
+      apt:
+        name: apache2
+        state: present
+    - name: content updated
+      copy:
+        content: "Dummy Page"
+        dest: /var/www/html/index.html
+
