@@ -1,0 +1,10 @@
+---
+- name: apache installation
+  apt:
+    name: apache2
+    state: present
+- name: copy template
+  template:
+    src: myfile.j2
+    dest: /var/www/html/index.html
+  notify: restart service 
