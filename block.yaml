@@ -1,0 +1,31 @@
+---
+- hosts: local
+  tasks:
+    - name: Installing APache and Updating the web page on ubuntu
+      block:
+        - name: Install apache
+          apt:
+            name: apache2
+            state: present
+        - name:  text
+          copy:
+            content: Hello this {{ ansible_host }}
+            dest: /var/www/html/index.html
+        - name: service
+          service:
+            name: apache
+            state: started
+      when: ansible_facts['distribution'] == "Ubuntu"
+      ignore_errors: yes
+    - name: Installing APache and Updating the web page
+      block:
+        - name: Install apache
+          yum:
+            name: httpd
+            state: present
+        - name:  text
+          copy:
+            content: Hello this {{ ansible_host }}
+            dest: /var/www/html/index.html
+      when: ansible_facts['distribution'] == "CentOS"
+
