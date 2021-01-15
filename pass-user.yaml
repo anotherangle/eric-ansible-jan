@@ -1,0 +1,8 @@
+---
+- hosts: lab
+  tasks:
+    - name: creating user
+      user:
+         name: thinknyx
+         state: present
+         password: '$6$ULvFJeNRb0XK$.nWERIF8mdIiG2T83IAZ3KZyaRib.1BLHDRC23UV4xH43awwdU/0SwJ7bC5AhvZy/LxWFs0ayX3anDNsyy0P8/'

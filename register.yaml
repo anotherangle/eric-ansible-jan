@@ -1,5 +1,5 @@
 ---
-- hosts: lab
+- hosts: web
   tasks:
     - name: packge
       shell: echo "This is a random message"
