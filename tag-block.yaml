@@ -1,0 +1,26 @@
+- hosts: local
+  tasks:
+    - block:
+      - name: Install apache
+        apt:
+            name: apache2
+            state: present
+      - name:  text
+        copy:
+            content: Hello this {{ ansible_host }}
+            dest: /var/www/html/index.html
+      - name: service
+        service:
+            name: apache2
+            state: started
+      tags: block1
+    - block:
+      - name: Install ntp 
+        apt:
+            name: ntp
+            state: present
+      - name:  text
+        copy:
+            content: Hello this {{ ansible_host }}
+            dest: /var/www/html/index.html
+      tags: block2

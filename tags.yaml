@@ -18,3 +18,8 @@
         name: mysql-client
         state: present
       tags: db
+    - name: some random task
+      copy:
+        content: "Test"
+        dest: /tmp/somefile.txt
+      tags: other
