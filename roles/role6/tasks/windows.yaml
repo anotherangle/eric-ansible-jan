@@ -1,13 +1,13 @@
 ---
+- name: install git and jdk
+  win_chocolatey:
+    name: ['git', 'jdk8']
+    state: present
 - name: install tomcat
   win_chocolatey:
     name: tomcat
     state: present
     version: "{{ tomcat_ver }}"
-- name: install git
-  win_chocolatey:
-    name: git
-    state: present
 - name: copy file
   win_template:
     src: test.j2
