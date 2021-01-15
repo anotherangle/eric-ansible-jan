@@ -1,0 +1,27 @@
+---
+- hosts: local
+  tasks:
+    - name: Installing APache and Updating the web page on ubuntu
+      block:
+        - name: Install apache
+          apt:
+            name: apache2
+            state: present
+        - name:  text
+          copy:
+            content: Hello this {{ ansible_host }}
+            dest: /var/www/html/index.html
+        - name: service
+          service:
+            name: apache2
+            state: started
+          register: out
+      rescue:
+        - name: rescue task
+          debug:
+            msg: "task failed rescue executing"
+      always:
+        - name: always task
+          debug:
+            msg: "meant to get executed always"
+
