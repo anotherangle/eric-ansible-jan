@@ -1,0 +1,9 @@
+---
+- hosts: local
+  vars_files:
+    - vars.yaml
+  tasks:
+    - name: create dir
+      file:
+        name: /tmp/{{ name }}
+        state: directory

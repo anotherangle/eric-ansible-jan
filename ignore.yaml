@@ -1,0 +1,16 @@
+---
+- hosts: local
+  tasks:
+    - name: some package
+      apt:
+        name: apache2
+        state: present
+    - name: ensure running
+      service:
+        name: apache
+        state: started
+      ignore_errors: yes
+    - name: content
+      copy:
+        content: 'Hello ALl'
+        dest: /var/www/html/index.html
