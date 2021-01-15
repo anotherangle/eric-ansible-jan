@@ -1,0 +1,20 @@
+---
+- hosts: local
+  tasks:
+    - name: install
+      apt:
+        name: apache2
+        state: present
+      tags: web
+    - name: content
+      copy:
+        content: "TExt updated"
+        dest: /var/www/html/index.html
+      tags: web
+    - name: shellexec
+      shell: echo "Testing" > /tmp/test.txt
+    - name: install dbclient
+      apt:
+        name: mysql-client
+        state: present
+      tags: db
